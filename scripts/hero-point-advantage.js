@@ -5,8 +5,8 @@ Hooks.once('init', async function() {
 
       for (const option of options) {
         if (option.name == "PF2E.RerollMenu.HeroPoint") {
-          option.callback = ($li) => {
-            const message = game.messages.get($li[0].dataset.messageId, { strict: true });
+          option.callback = (li) => {
+            const message = game.messages.get(li.dataset.messageId, { strict: true });
             game.pf2e.Check.rerollFromMessage(message, { keep: "higher" , heroPoint: true });
           }
         }
