@@ -7,7 +7,14 @@ Hooks.once('init', async function() {
         if (option.name == "PF2E.RerollMenu.HeroPoint") {
           option.callback = (li) => {
             const message = game.messages.get(li.dataset.messageId, { strict: true });
-            game.pf2e.Check.rerollFromMessage(message, { keep: "higher" , heroPoint: true });
+            game.pf2e.Check.rerollFromMessage(message, { keep: "higher" , resource: "hero-points" });
+          }
+        }
+        
+        if (option.name == "PF2E.RerollMenu.MythicPoint") {
+          option.callback = (li) => {
+            const message = game.messages.get(li.dataset.messageId, { strict: true });
+            game.pf2e.Check.rerollFromMessage(message, { keep: "higher" , resource: "mythic-points" });
           }
         }
       }
